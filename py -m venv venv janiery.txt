@@ -1,0 +1,54 @@
+py -m venv venv
+
+venv/Scripts/activate
+
+py -m pip install Django
+
+django-admin startproject nome_do_projeto .
+py manage.py startapp nome_do_apppy
+
+depois disso 
+ir em settins mudar a linguagen e instalar os apps
+depois ir em models
+
+ex:
+class Produto(models.Model):
+    nome_produto = models.CharField(max_length=100)
+    quantidade_estoque = models.IntegerField()
+    valor_de_custo = models.DecimalField(decimal_places=20, max_digits=20)
+    valor_de_venda =  models.DecimalField(decimal_places=20, max_digits=20)
+    data_de_criacao = models.DateTimeField(auto_now_add=True)
+    data_de_modificacao = models.DateTimeField(auto_now=True)
+
+def __str__(self):
+        return self.nome_produto    
+
+depois ir na pasta admin.py e resgistrar o app
+
+from django.contrib import admin
+from .models import Produto
+
+admin.site.register(Produto)
+
+depois seguir os pacos a baixo
+
+py manage.py makemigrations
+
+py manage.py migrate
+
+py manage.py createsuperuser
+
+py manage.py runserver
+
+***Passo a Passo Criar app no Projeto
+
+py manage.py startapp nome_do_apppy
+
+
+
+models.(CharField()) usado para texto curto
+      (textfield) uasado para texto longo
+
+class Produto(models.Model):inportar a bliblioteca
+datetimefield = referente a data e hora
+datefielde = referente so a data
